@@ -1,5 +1,6 @@
 import React from "react";
 import * as hooksViews from "./views/hookBasic";
+import HookEffectBasic from "./views/hookBasic/HookEffectBasic";
 
 console.log("hooksViews", hooksViews);
 
@@ -15,6 +16,8 @@ function StartApp() {
       return <div key={index}>{hooksViews[viewKey]()}</div>;
     });
 
+    console.log("Render viwes?");
+
     return viewArray;
   };
 
@@ -22,6 +25,9 @@ function StartApp() {
     <div className="StartApp">
       start
       <div>{views()}</div>
+      <div>
+        <HookEffectBasic />
+      </div>
     </div>
   );
 }

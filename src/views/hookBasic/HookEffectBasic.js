@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 let renderCount = 0;
 
@@ -15,23 +15,16 @@ const HookEffectBasic = props => {
   const [getOtherCount, setOtherCount] = useState(0);
 
   useEffect(() => {
-    setcount(getCount + 1);
-    setOtherCount(getOtherCount + 1);
-  }, []);
-
-  const addCount = () => {
-    setcount(getCount + 1);
-  };
+    // setcount(getCount + 1);
+  }, [getCount]);
 
   return (
     <div style={style.boardStyle}>
-      {console.log("Effect Basic Render")}
+      {console.log("Effect Basic Render", ++renderCount)}
       <div>Use Effect</div>
       <div>
         Render count when using two useState in useEffect : {renderCount}
       </div>
-      <br />
-      <button onClick={addCount}> count add one </button>
       <br />
       <span>normal Count : {getCount}</span>
       <br />
