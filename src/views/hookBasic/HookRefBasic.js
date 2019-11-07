@@ -1,30 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 let refControll = null;
+
 function HookRefBasic() {
   const onTest = () => {
-    refControll.onClose();
+    refControll.onToggle();
   };
 
   return (
     <div>
+      {console.log("HOOK REF BASIC")}
       <button onClick={onTest}>test button</button>
-      <Button
-        onFunction={fnc => {
-          refControll = fnc;
-        }}
-      />
-      <Button/>
+      <Button />
     </div>
   );
 }
 
 function Button(props) {
   const [open, setOpen] = useState(true);
-  const { onFunction } = props;
+  // const { onFunction } = props;
+
+  const onToggle = useCallback(() => {
+    console.log("on Toggle", open);
+    setOpen(!open);
+  }, [open]);
+
+  // console.log("onFunction", onFunction);
+
   useEffect(() => {
-    onFunction({ onOpen, onClose });
-  }, [onFunction]);
+    refControll = { onOpen, onClose, onToggle };
+  }, [onToggle]);
 
   const onOpen = () => {
     setOpen(true);
@@ -34,7 +39,11 @@ function Button(props) {
     setOpen(false);
   };
 
-  return <button disabled={open}>Button</button>;
+  return (
+    <button disabled={open} onClick={onToggle}>
+      Button
+    </button>
+  );
 }
 
 export default HookRefBasic;

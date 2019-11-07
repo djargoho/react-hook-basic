@@ -1,7 +1,12 @@
 import React from "react";
 
 function HookStateBasic() {
-  return <div>test</div>;
+  return (
+    <div>
+      {console.log("HOOK State BASIC")}
+      test
+    </div>
+  );
 }
 
 export default HookStateBasic;
