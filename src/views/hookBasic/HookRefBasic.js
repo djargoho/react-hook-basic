@@ -10,7 +10,7 @@ function HookRefBasic() {
   return (
     <div>
       {console.log("HOOK REF BASIC")}
-      <button onClick={onTest}>test button</button>
+      <button onClick={onTest}>test button 뜨아아 오늘 개발 실패</button>
       <Button />
     </div>
   );
@@ -41,7 +41,7 @@ function Button(props) {
 
   return (
     <button disabled={open} onClick={onToggle}>
-      Button
+      ButtonTEST
     </button>
   );
 }
