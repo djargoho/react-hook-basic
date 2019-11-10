@@ -10,7 +10,7 @@ function HookRefBasic() {
   return (
     <div>
       {console.log("HOOK REF BASIC")}
-      <button onClick={onTest}>test button 뜨아아 오늘 개발 실패</button>
+      <button onClick={onTest}>test button 뜨아아 오늘 개발 실패 저장이라도 잊지 말고 하자.</button>
       <Button />
     </div>
   );
